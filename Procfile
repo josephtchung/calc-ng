@@ -1,2 +1,2 @@
-"web: scripts/web-server.js"
+"web: npm start"
 
