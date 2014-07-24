@@ -20,7 +20,7 @@
     "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "http-server -a localhost -p $PORT",
+    "start": "http-server -a localhost -p 5000",
 
     "pretest": "npm install",
     "test": "karma start test/karma.conf.js",
