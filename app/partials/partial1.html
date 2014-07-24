@@ -1,0 +1,186 @@
+
+<div class="container">
+
+  <div class="row" >
+    <div class="col-md-3">
+      Your Assets
+    </div>
+    <div class="col-md-3">
+      You can spend
+    </div>
+    <div class="col-md-3"	>
+      Over
+    </div>
+  </div>
+
+  <div class="row" style="font-size:24px; border-bottom: 1px solid #ccc;">
+  	<div class="col-md-2">
+  		${{budget.assets | number:0}}
+  	</div>
+  	<div class="col-md-1">
+  		=
+  	</div>
+  	<div class="col-md-3">
+  		${{budget.yearly | number:0}}
+  	</div>
+  	<div class="col-md-3">
+  		{{budget.span}} years
+  	</div>
+  </div>
+
+  <div class="row">
+
+  	<div class="col-md-3" style="border-right: 1px solid #ccc;">
+  		
+  		<form novalidate class="simple-form" role="form">
+
+  			<h3>Assisted Living Type</h3>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
+              value="independentLiving" ng-change="update()"> Independent Living
+  				</label>
+  			</div>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType" 
+              value="assistedLiving" ng-change="update()">  Assisted Living
+  				</label>
+  			</div>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
+              value="alzheimersDementiaCare" ng-change="update()"> Alzheimer's/Dementia Care
+  				</label>
+  			</div>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
+              value="continuingCareRetirementCommunity" ng-change="update()"> Continuing Care Retirement Community
+  				</label>
+  			</div>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
+              value="skilledNursingCenter" ng-change="update()"> Skilled Nursing Center
+  				</label>
+  			</div>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
+              value="personalCare" ng-change="update()"> Personal Care
+  				</label>
+  			</div>
+
+  			<h3>Care Type</h3>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="careType" ng-model="input.careType" 
+              value="healthAide" ng-change="update()"> Health Aide
+  				</label>
+  			</div>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="careType" ng-model="input.careType" 
+              value="registeredNurse" ng-change="update()"> Registered Nurse
+  				</label>
+  			</div>
+
+        <h3>Days per Week</h3>
+        <input ng-model="input.daysPerWeek" type="text" id="dpw-slider" ng-change="update()"
+          slider options="{from: 1, to: 7, step: 1, smooth: false, scale: [1, 2, 3, 4, 5, 6, 7]}" />
+        <br />
+
+        <h3>Medication Assistance</h3>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="input.medicationAssistance" value = "no" ng-change="update()"> No
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="input.medicationAssistance" value = "yes" ng-change="update()"> Yes
+          </label>
+        </div>
+
+
+        <h3>Meal Assistance</h3>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="input.mealAssistance" value="no" ng-change="update()"> No
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="input.mealAssistance" value="yes" ng-change="update()"> Yes
+          </label>
+        </div>
+
+
+        <h3>Bathing Assistance</h3>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="input.bathingAssistance" value="no" ng-change="update()"> No
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="input.bathingAssistance" value="yes" ng-change="update()"> Yes
+          </label>
+        </div>
+
+
+
+
+
+
+  		</form>
+
+  	</div> <!-- form column -->
+
+  	<div class="col-md-9">
+  		<div class="row">
+  			<div class="col-md-6" style="border-right: 1px solid #ccc;">
+  				<h3>Based on Your Budget</h3>
+  			</div>
+
+  			<div class="col-md-6">
+  				<h3>Your Selected Option</h3>
+  			</div>
+  		</div>	
+
+
+  		<div class="row" style="border-bottom: 1px solid #ccc;">
+  			<div class="col-md-6" style="border-right: 1px solid #ccc;">
+  				You can spend
+					<strong> $1,500/month </strong>
+				Home health aide 1 visit per week
+				 Bathing assistance
+  			</div>
+
+  			<div class="col-md-6">
+  				Average costs
+					<strong> $4,800/month </strong>
+					Home health aide
+					4 visits per week Bathing assistance Medication assistance Meal assistance
+  			</div>
+  		</div>
+
+  		<div google-chart chart="chartObject"  style="height:400px; width:100%;" on-ready="chartReady()"></div>
+
+ 		</div>
+
+<!--
+<div google-chart chart="chartObject" style="height:600px; width:100%;" on-ready="chartReady()"></div>
+-->
+
+  </div> <!-- end row (most of the chart) -->
+
+
+
+</div> <!-- container -->
+
+<pre>
+{{input | json}}
+{{forecast | json}}
+</pre>
