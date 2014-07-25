@@ -6,6 +6,17 @@ angular.module('myApp.controllers', [])
 
 .controller('MyCtrl1', ['$scope', function($scope) {
 
+  $scope.CARE_KEYWORD_MAP = {
+    "independentLiving": "Independent Living",
+    "assistedLiving": "Assisted Living",
+    "alzheimersDementiaCare": "Alzheimer's/Dementia Care",
+    "continuingCareRetirementCommunity": "Continuing Care Retirement Community",
+    "skilledNursingCenter": "Skilled Nursing Center",
+    "personalCare": "Personal Care",
+    "healthAide": "Health Aide",
+    "registeredNurse": "Registered Nurse"
+  };
+
   // model variables
   $scope.input = getInitialInput(); // input from user
   $scope.budget = getBudget(); // established budget

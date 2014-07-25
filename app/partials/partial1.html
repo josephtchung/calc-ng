@@ -38,37 +38,36 @@
   			<div class="radio">
   				<label>
   					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
-              value="independentLiving" ng-change="update()"> Independent Living
+              value="independentLiving" ng-change="update()"> {{CARE_KEYWORD_MAP["independentLiving"]}}
   				</label>
   			</div>
   			<div class="radio">
   				<label>
   					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType" 
-              value="assistedLiving" ng-change="update()">  Assisted Living
+              value="assistedLiving" ng-change="update()">  {{CARE_KEYWORD_MAP["assistedLiving"]}}
   				</label>
   			</div>
   			<div class="radio">
   				<label>
   					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
-              value="alzheimersDementiaCare" ng-change="update()"> Alzheimer's/Dementia Care
+              value="alzheimersDementiaCare" ng-change="update()"> {{CARE_KEYWORD_MAP["alzheimersDementiaCare"]}}
+  			</div>
+  			<div class="radio">
+  				<label>
+  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
+              value="continuingCareRetirementCommunity" ng-change="update()"> {{CARE_KEYWORD_MAP["continuingCareRetirementCommunity"]}}
   				</label>
   			</div>
   			<div class="radio">
   				<label>
   					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
-              value="continuingCareRetirementCommunity" ng-change="update()"> Continuing Care Retirement Community
+              value="skilledNursingCenter" ng-change="update()"> {{CARE_KEYWORD_MAP["skilledNursingCenter"]}}
   				</label>
   			</div>
   			<div class="radio">
   				<label>
   					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
-              value="skilledNursingCenter" ng-change="update()"> Skilled Nursing Center
-  				</label>
-  			</div>
-  			<div class="radio">
-  				<label>
-  					<input type="radio" name="assistedLivingType" ng-model="input.assistedLivingType"
-              value="personalCare" ng-change="update()"> Personal Care
+              value="personalCare" ng-change="update()"> {{CARE_KEYWORD_MAP["personalCare"]}}
   				</label>
   			</div>
 
@@ -76,13 +75,13 @@
   			<div class="radio">
   				<label>
   					<input type="radio" name="careType" ng-model="input.careType" 
-              value="healthAide" ng-change="update()"> Health Aide
+              value="healthAide" ng-change="update()"> {{CARE_KEYWORD_MAP["healthAide"]}}
   				</label>
   			</div>
   			<div class="radio">
   				<label>
   					<input type="radio" name="careType" ng-model="input.careType" 
-              value="registeredNurse" ng-change="update()"> Registered Nurse
+              value="registeredNurse" ng-change="update()"> {{CARE_KEYWORD_MAP["registeredNurse"]}}
   				</label>
   			</div>
 
@@ -161,8 +160,14 @@
   			<div class="col-md-6">
   				Average costs
 					<strong> $4,800/month </strong>
-					Home health aide
-					4 visits per week Bathing assistance Medication assistance Meal assistance
+					<ul>
+            <li>{{CARE_KEYWORD_MAP[input.assistedLivingType]}}</li>
+            <li>{{CARE_KEYWORD_MAP[input.careType]}}</li>
+            <li>Days per Week: {{input.daysPerWeek}}</li>
+            <li>Medication Assistance: {{input.medicationAssistance}}</li>
+            <li>Meal Assistance: {{input.mealAssistance}}</li>
+            <li>Bathing Assistance: {{input.bathingAssistance}}</li>
+          </ul>
   			</div>
   		</div>
 
@@ -179,8 +184,3 @@
 
 
 </div> <!-- container -->
-
-<pre>
-{{input | json}}
-{{forecast | json}}
-</pre>
